@@ -13,7 +13,7 @@
 - Model 접근 : Regression/Classification & proba threshold + Ensemble(WBF?, Weighted box fusion) + hyperparameter tuning
     - Regression이 Base, 경향성을 강화시키고 threshold를 주려면 Classification
     - Ensemble : 다양한 Ensemble 방법이 존재, 잘 짜여진 단일 모델이 Ensemble 보다 좋을 수 있다.
-    - Hyperparameter tuning : Ray
+    - Hyperparameter tuning : Ray? wandb.sweep?
 - Competition에 대한 고찰
     - 일반적인 대회   
         -> 당연히 성능, 순위가 중요, 타 대회 코드나 모듈에 의존   
