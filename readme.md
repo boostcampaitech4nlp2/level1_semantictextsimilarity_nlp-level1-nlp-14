@@ -11,13 +11,8 @@
 - - - 
 ## Work individual
 
-[김상윤_T4036](./work_indiv/sangyun/)  
-#
-[고우진_T4006](./work_indiv/woojin/)  
-#
-[이재욱_T4164](./work_indiv/jaewook/)  
-#
-[이종윤_T4169](./work_indiv/jongyun/)  
-#
-[염성현_T4126](./work_indiv/sunghyun/)   
-#
+[김상윤_T4036](./work_indiv/sangyun/)    
+[고우진_T4006](./work_indiv/woojin/)   
+[이재욱_T4164](./work_indiv/jaewook/)    
+[이종윤_T4169](./work_indiv/jongyun/)    
+[염성현_T4126](./work_indiv/sunghyun/)    
