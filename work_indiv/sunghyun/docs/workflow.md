@@ -1,14 +1,36 @@
 # Work Flow Doucmentation
 #### NLP_14조_번역해조_T4126_염성현
 - - -
+## 0. Thoughts
+10/26 : Data 접근 + Model 접근
+- Data 접근 : Augmentation + Feature Extraction + Tokenization + 전처리
+    - Augmentation : Label 5 데이터 때문이라도 필요하지 않을까?
+    - Feature Extraction : 각 라벨이 담고 있는 정보는 무엇일까? 부가적인 내용의 의미는?
+    - Tokenization : BPE? 한국어에 맞는 방법은?
+    - 전처리 : 불용어 처리, 대체 단어 탐색
+        -> 필요한가?
+        -> Embedding 측면으로 접근한다면?
+- Model 접근 : Regression/Classification & proba threshold + Ensemble(WBF?, Weighted box fusion) + hyperparameter tuning
+    - Regression이 Base, 경향성을 강화시키고 threshold를 주려면 Classification
+    - Ensemble : 다양한 Ensemble 방법이 존재, 잘 짜여진 단일 모델이 Ensemble 보다 좋을 수 있다.
+    - Hyperparameter tuning : Ray
+- Competition에 대한 고찰
+    - 일반적인 대회   
+        -> 당연히 성능, 순위가 중요, 타 대회 코드나 모듈에 의존   
+    - 부스트 캠프 대회    
+        -> 교육 과정, podium의 의미?, 과정과 기록, Struggle, 잘하는 걸 증명하기만 하는 것은 별 의미가 없다. 의존하느냐 협업하느냐.   
+    - 코드 공유의 의미    
+        -> 고도화 시키지 않은 코드는 공유해도 무방, podium에 들지 못할 가능성, 스스로를 어필하는 방법.   
+- - -
 ## 1.EDA
 - - -
 ### 1-1.EDA &insights
 
-[EDA File](./codes/simpler_eda.ipynb "to file")
+[EDA File](../codes/simpler_eda.ipynb "to file")
 - Raw data
     - 비문법적 표현, 인터넷 용어가 많이 보인다.
     - 단어의 분절(split)이 잘 되지 않은 문장들이 보인다.
+    - 출현 횟수가 1 또는 적은 단어들이 많이 보인다.
 - Label
     - 0 라벨 데이터의 숫자가 많고 그 비율 또한 상당히 높다.
     - 5 라벨 데이터의 숫자와 비율은 반면에 매우 적고 매우 낮다.
@@ -36,3 +58,5 @@
 - Data Augmentation, Data Filtering
     - 라벨 별 혹은 문장 길이 별 데이터 비율을 맞춰주는 것 고려
     - 라벨 별 혹은 문장 길이 별 데이터 filtering, 각각의 proba에 대해 각기 다른 threshold를 주는 것 고려
+    - 출현 횟수가 적은 token에 대한 처리 고려
+
