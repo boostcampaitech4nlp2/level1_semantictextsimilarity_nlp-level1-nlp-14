@@ -1,5 +1,5 @@
 # BoostCamp_Level1_Project_STS
-#### NLP_14조_번역해조_T4126_염성현
+### NLP_14조_번역해조_T4126_염성현
 - - -
 
 ## Progress

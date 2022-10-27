@@ -14,7 +14,8 @@
 - Model 접근 : Regression/Classification & proba threshold + Ensemble(WBF?, Weighted box fusion) + hyperparameter tuning
     - Regression이 Base, 경향성을 강화시키고 threshold를 주려면 Classification
     - Ensemble : 다양한 Ensemble 방법이 존재, 잘 짜여진 단일 모델이 Ensemble 보다 좋을 수 있다.
-    - Hyperparameter tuning : Ray? wandb.sweep?
+    - Hyperparameter tuning : Ray? wandb.sweep?  
+    #
 - Competition에 대한 고찰
     - 일반적인 대회   
         -> 당연히 성능, 순위가 중요, 타 대회 코드나 모듈에 의존   
@@ -39,7 +40,7 @@
     - 0 라벨 데이터에 치우치거나 5 라벨 데이터 예측이 잘 안되는 것이 우려된다.
     - 5 라벨 최대 토큰 개수가 문장 길이에 비해 매우 적게 나왔다.   
         -> 단어의 분절화가 잘 이루어지지 않았거나 비문법적 표현이 많이 사용되었을 가능성이 있다.  
-        #
+    #
 - Sentence Length, Token Counts
     - 문장 길이는 40, 토큰 개수는 10을 기준으로 데이터 수가 급격히 줄어들었다.
     - 데이터의 치우침이 있는 것 같아 보인다. skewness 확인해 볼 필요성.  
