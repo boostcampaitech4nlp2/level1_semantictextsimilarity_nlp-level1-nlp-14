@@ -2,7 +2,8 @@
 #### NLP_14조_번역해조_T4126_염성현
 - - -
 ## 0. Thoughts
-10/26 : Data 접근 + Model 접근
+10/26 : Data 접근 + Model 접근   
+#
 - Data 접근 : Augmentation + Feature Extraction + Tokenization + 전처리
     - Augmentation : Label 5 데이터 때문이라도 필요하지 않을까?
     - Feature Extraction : 각 라벨이 담고 있는 정보는 무엇일까? 부가적인 내용의 의미는?
@@ -27,7 +28,8 @@
 ## 1.EDA
 - - -
 ### 1-1.EDA &insights
-
+pubilshed 10/25   
+#
 [EDA File](../codes/simpler_eda.ipynb "to file")
 - Raw data
     - 비문법적 표현, 인터넷 용어가 많이 보인다.
@@ -67,3 +69,18 @@
     - 라벨 별 혹은 문장 길이 별 데이터 filtering, 각각의 proba에 대해 각기 다른 threshold를 주는 것 고려
     - 출현 횟수가 적은 token에 대한 처리 고려
 
+### 2-1. Label
+published 10/28
+
+[Label Trace Note](../codes/label_trace_note.ipynb)
+- (가설) label score의 의미는 두 문장 문장 주성분과 부속 성분, 독립 성분 correlation의 합
+### 2-2. further work
+- label 가설의 정립
+    - base 코드 tokenization 출력 확인
+    - 한국어 pos tagging 포함 tokenization
+    - token embedding 시각화
+    - label의 의미 명확화
+- NLU
+    - NLU 모델 설계(feature extraction)
+    - 전처리, 데이터 증강
+    - 과정 별 모델 성능 비교

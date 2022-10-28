@@ -16,3 +16,4 @@
 
 - list
     - [EDA](./codes/simpler_eda.ipynb 'eda')
+    - [Label EdA](./codes/label_trace_note.ipynb 'label')
