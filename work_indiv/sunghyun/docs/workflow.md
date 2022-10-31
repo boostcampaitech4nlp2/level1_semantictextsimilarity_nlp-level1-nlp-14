@@ -95,10 +95,10 @@ published 10/31
 
 ### 3-2. Server setting & Run
 
-```
-pip install —ignore-installed PyYAML
-pip install -r requirements.txt
-```
+
+>pip install —ignore-installed PyYAML  
+>pip install -r requirements.txt
+
 위의 코드를 활용해 requirements.txt의 라이브러리 설치  
 -> 그러나 segmentation fault (core dumped) 문제 발생  
 -> 위의 문제가 pytorch와 torchvision의 dependency 문제(cuda 버젼이 상이)임을 발견  
