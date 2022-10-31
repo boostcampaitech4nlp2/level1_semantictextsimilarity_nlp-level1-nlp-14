@@ -4,7 +4,8 @@
 
 ## Progress
 
-*EDA*
+*EDA* --> *pos-tagging*  
+*model selection* : Roberta-large
 - - -
 
 ## Docs
@@ -17,3 +18,4 @@
 - list
     - [EDA](./codes/simpler_eda.ipynb 'eda')
     - [Label EdA](./codes/label_trace_note.ipynb 'label')
+    - [Pos-tagging EDA](./codes/pos_eda.ipynb 'pos')

@@ -3,7 +3,6 @@
 - - -
 ## 0. Thoughts
 10/26 : Data 접근 + Model 접근   
-#
 - Data 접근 : Augmentation + Feature Extraction + Tokenization + 전처리
     - Augmentation : Label 5 데이터 때문이라도 필요하지 않을까?
     - Feature Extraction : 각 라벨이 담고 있는 정보는 무엇일까? 부가적인 내용의 의미는?
@@ -29,7 +28,7 @@
 - - -
 ### 1-1.EDA &insights
 pubilshed 10/25   
-#
+
 [EDA File](../codes/simpler_eda.ipynb "to file")
 - Raw data
     - 비문법적 표현, 인터넷 용어가 많이 보인다.
@@ -84,3 +83,28 @@ published 10/28
     - NLU 모델 설계(feature extraction)
     - 전처리, 데이터 증강
     - 과정 별 모델 성능 비교
+
+### 3-1. pos-tagging
+published 10/31
+
+[Pos-tagging EDA Note](../codes/pos_eda.ipynb)
+- pos-tagging 실험 중, konlpy와 mecab 라이브러리 설치 및 사용이란 벽에 부딪힘
+- 과정 중 tokenizer에 대해 조사하고 결과를 decode하여 문장이 어떻게 나뉘는지 관찰함
+    - 해당 과정에서 팀원들과 토의 중, max_length의 의미와 활용에 대해 알게 됨
+- 나뉜 문장에 pos-tagging을 하고 label 별로 유의미한 token을 찾아내는 것이 앞으로의 과제
+
+### 3-2. Server setting & Run
+
+```
+pip install —ignore-installed PyYAML
+pip install -r requirements.txt
+```
+위의 코드를 활용해 requirements.txt의 라이브러리 설치  
+-> 그러나 segmentation fault (core dumped) 문제 발생  
+-> 위의 문제가 pytorch와 torchvision의 dependency 문제(cuda 버젼이 상이)임을 발견  
+-> pytorch 버젼 확인 후, torchvision uninstall  
+-> [pytorch previous ver](https://pytorch.kr/get-started/previous-versions/)을 확인하여 재설치     
+
+tokenizer 설정이나 wandb, random seed 등의 관련 코드들을 기존 baseline code에 병합하는 작업을 함   
+wandb와 random seed에 관련해선 팀원들의 도움을 받음   
+Roberta-large를 wandb.sweep()을 활용해 최적의 hyper parameter를 찾으며 학습 중.
