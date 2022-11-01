@@ -2,7 +2,9 @@
 
 ## Work progress
 
-[Score 상황](./work_integ/readme.md)
+[Score 상황](./work_integ/readme.md)   
+[Workflow](./work_integ/workflow.md)
+
 - - -
 ## Minutes
 

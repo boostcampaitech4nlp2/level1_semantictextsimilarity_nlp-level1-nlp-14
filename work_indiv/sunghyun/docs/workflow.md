@@ -1,8 +1,9 @@
 # Work Flow Doucmentation
 #### NLP_14조_번역해조_T4126_염성현
 - - -
-## 0. Thoughts
-10/26 : Data 접근 + Model 접근   
+## Thoughts
+<u>10/26</u> : Data 접근 + Model 접근   
+- - -
 - Data 접근 : Augmentation + Feature Extraction + Tokenization + 전처리
     - Augmentation : Label 5 데이터 때문이라도 필요하지 않을까?
     - Feature Extraction : 각 라벨이 담고 있는 정보는 무엇일까? 부가적인 내용의 의미는?
@@ -23,11 +24,10 @@
         -> 교육 과정, podium의 의미?, 과정과 기록, Struggle, 잘하는 걸 증명하기만 하는 것은 별 의미가 없다. 의존하느냐 협업하느냐.   
     - 코드 공유의 의미    
         -> 고도화 시키지 않은 코드는 공유해도 무방, podium에 들지 못할 가능성, 스스로를 어필하는 방법.   
-- - -
-## 1.EDA
+
 - - -
 ### 1-1.EDA &insights
-pubilshed 10/25   
+<u>pubilshed 10/25</u>   
 
 [EDA File](../codes/simpler_eda.ipynb "to file")
 - Raw data
@@ -68,8 +68,9 @@ pubilshed 10/25
     - 라벨 별 혹은 문장 길이 별 데이터 filtering, 각각의 proba에 대해 각기 다른 threshold를 주는 것 고려
     - 출현 횟수가 적은 token에 대한 처리 고려
 
+- - -
 ### 2-1. Label
-published 10/28
+<u>published 10/28</u>  
 
 [Label Trace Note](../codes/label_trace_note.ipynb)
 - (가설) label score의 의미는 두 문장 문장 주성분과 부속 성분, 독립 성분 correlation의 합
@@ -83,9 +84,9 @@ published 10/28
     - NLU 모델 설계(feature extraction)
     - 전처리, 데이터 증강
     - 과정 별 모델 성능 비교
-
+- - -
 ### 3-1. pos-tagging
-published 10/31
+<u>published 10/31</u>  
 
 [Pos-tagging EDA Note](../codes/pos_eda.ipynb)
 - pos-tagging 실험 중, konlpy와 mecab 라이브러리 설치 및 사용이란 벽에 부딪힘
@@ -108,3 +109,34 @@ published 10/31
 tokenizer 설정이나 wandb, random seed 등의 관련 코드들을 기존 baseline code에 병합하는 작업을 함   
 wandb와 random seed에 관련해선 팀원들의 도움을 받음   
 Roberta-large를 wandb.sweep()을 활용해 최적의 hyper parameter를 찾으며 학습 중.
+
+- - -
+### 4-1. Pos EDA
+<u>published 11/01</u>  
+
+Roberta-Large 모델을 Batch_size를 달리해가며 돌렸음
+- 최대 Batch_size 크기가 32였는데 32의 모델이 가장 성능이 우수하게 나왔음
+- 더 많은 비교가 필요
+
+Opitmizer Selection을 위한 작업을 마련해놓음, 추후 문서를 확인 후 적절한 Opitimizer를 뽑아 실험할 계획
+
+[Pos EDA](../codes/pos_eda.ipynb)
+- Konlpy 설치 후 Kkma를 통한 형태소 분석 시도
+- AutoTokenizer로 불러오는 BertTokenizer가 한국어에 맞지 않음을 발견
+    - 단어 분절이 이상하게 됨 (명사가 중간에 잘리는 등)
+- Pos-tagging 후 Label 과의 상관관계를 관찰하였으나 유의미한 지표를 발견하지 못함
+    - 문장 구성성분이 아닌 형태소 분석에 따른 것이 아닌가 싶음
+    - 구성성분에 따라 형태소를 나누거나 다른 분석 방법을 도입하는 등의 방법이 있을 것 같음
+    - 하지만 시간적인 한계가 존재하므로 구성성분 분석은 하지 않겠음
+
+-> Pos-tagging을 적용해 Label을 활용하는 방안은 실패  
+-> Pos-tagging을 적용해 전처리를 하거나 Tokenizer를 Customize하는 쪽으로 작업을 지속
+
+### 4-2. Reverse sentence
+
+[Sen_plus](../codes/sen_plus.py)
+- GPT 논문에서 STS task에 대해 sentence1과 sentence2를 그대로 또 뒤집어서 넣는 것에서 착안
+    ![GPT_TASKS](../../../src/gpt_tasks.jpeg)
+- Concat 하는 방식으로 학습 데이터 셋을 늘려보았음
+- Score가 0.01 정도 차이 나는 것을 관측할 수 있었으나 좀 더 다양한 파라미터에 대해 실험할 계획
+- GPT 논문의 구조를 재현하는 코드를 작성 중에 있음
