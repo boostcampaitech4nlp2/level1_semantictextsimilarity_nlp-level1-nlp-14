@@ -1,5 +1,8 @@
 # Score 기록
 
+### Wandb projects
+- [Wandb link](https://wandb.ai/bc14)
+
 ### Base line code 
 - epoch 1 : 0.7284
 - epoch 50 : 0.8681
@@ -13,4 +16,4 @@
         - 0.9057
 - koelectra-base-v3-discriminator
     - batch_size 8, max_length 175, max_epoch 20, Corr loss
-        -0.9119
+        - 0.9119
